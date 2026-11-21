@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stresscraft"
+version = "0.1.0"
+description = "High-performance automated competitive programming differential fuzzing, testcase generator, and delta-debugging counterexample minimizer engine."
+readme = "README.md"
+authors = [
+    { name = "Om Reddy Enduri", email = "omreddyenduri@gmail.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+keywords = [
+    "competitive-programming",
+    "differential-testing",
+    "fuzzing",
+    "testcase-generator",
+    "delta-debugging",
+    "codeforces",
+    "atcoder",
+    "leetcode",
+    "stress-testing",
+]
+dependencies = [
+    "rich>=12.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+stresscraft = "stresscraft.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/OmReddyEnduri/StressCraft"
+Repository = "https://github.com/OmReddyEnduri/StressCraft.git"
+"Bug Tracker" = "https://github.com/OmReddyEnduri/StressCraft/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["stresscraft*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
